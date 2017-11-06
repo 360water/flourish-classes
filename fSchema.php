@@ -1233,13 +1233,13 @@ class fSchema
 			$row    = $result->fetchRow();
 
 			// Primary keys
-			preg_match_all('/PRIMARY KEY\s+\("(.*?)"\),?\n/U', $row['Create Table'], $matches, PREG_SET_ORDER);
+            preg_match_all('/PRIMARY KEY\s+\("(.*?)"\)/U', $row['Create Table'], $matches, PREG_SET_ORDER);
 			if (!empty($matches)) {
 				$keys[$table]['primary'] = explode('","', strtolower($matches[0][1]));
 			}
 
 			// Unique keys
-			preg_match_all('/UNIQUE KEY\s+"([^"]+)"\s+\("(.*?)"\),?\n/U', $row['Create Table'], $matches, PREG_SET_ORDER);
+			preg_match_all('/UNIQUE KEY\s+"(["]+)"\s+("(.?)")(?:\s+USING\s+\w+\s)?,?\n/U', $row['Create Table'], $matches, PREG_SET_ORDER);
 			foreach ($matches as $match) {
 				$keys[$table]['unique'][] = explode('","', strtolower($match[2]));
 			}

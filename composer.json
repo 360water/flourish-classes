@@ -1,6 +1,6 @@
 {
-    "name": "flourish/flourish",
-    "description": "A collection of classes for general web development, with a particular focus on compatibility, portability and security",
+    "name": "360water/flourish",
+    "description": "A collection of classes for general web development, with a particular focus on compatibility, portability and security. Modified by 360 Water for MySQL 5.7 Compatibility",
     "homepage": "http://flourishlib.com/",
     "type": "library",
     "license": "MIT",
